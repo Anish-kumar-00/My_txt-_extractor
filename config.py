@@ -21,13 +21,15 @@ API_HASH = environ.get("API_HASH", "a98ec8cfd8572a3a7c936cf828fe6215")
 
 # --------------M----------------------------------
 
-import os
+from os import getenv
 
-os.environ["API_ID"] = "34677259"
-os.environ["API_HASH"] = "f149c400ef1ee7662fcd6e74d6529d5b"
-os.environ["BOT_TOKEN"] = "8922703959:AAFtLcR2M1IsyHjvqzwVAuT2ksGM58jOZtc"
-os.environ["OWNER_ID"] = "5968883359"
-os.environ["SUDO_USERS"] = "5968883359"
-os.environ["MONGO_URL"] = "mongodb+srv://<db_username>:3DGoh7sYhfdKCwcx@extractordb.cu1uofn.mongodb.net/?appName=ExtractorDB"
-os.environ["CHANNEL_ID"] = "-1003881333048"
-os.environ["PREMIUM_LOGS"] = "-1003881333048"
+
+API_ID = int(getenv("API_ID", "34677259"))
+API_HASH = getenv("API_HASH", "f149c400ef1ee7662fcd6e74d6529d5b")
+BOT_TOKEN = getenv("BOT_TOKEN", "8922703959:AAFtLcR2M1IsyHjvqzwVAuT2ksGM58jOZtc")
+OWNER_ID = int(getenv("OWNER_ID", "5968883359"))
+SUDO_USERS = list(map(int, getenv("SUDO_USERS", "5968883359").split()))
+MONGO_URL = getenv("MONGO_DB", "mongodb+srv://<db_username>:3DGoh7sYhfdKCwcx@extractordb.cu1uofn.mongodb.net/?appName=ExtractorDB")
+
+CHANNEL_ID = int(getenv("CHANNEL_ID", "-1003881333048"))
+PREMIUM_LOGS = int(getenv("PREMIUM_LOGS", "-1003881333048"))
